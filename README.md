@@ -9,3 +9,7 @@ CRUD Cadastro de Empresas (Vue.js / Nest.js / MongoDB)
   1. Iniciar MongoDB (sudo systemctl start mongodb)
   2. Iniciar aplicativo BKEND (npm run start)
   3. Iniciar aplicativo FNTEND (npm run serve)
+
+- Docker:
+  Caso preferir usar o MongoDB no docker: https://docs.docker.com/get-docker/
+   - Comando para iniciar o mongo: docker run -d --name mongo-cadastro -p 27017:27017 mongo"
