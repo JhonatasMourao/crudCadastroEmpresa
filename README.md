@@ -13,3 +13,5 @@ CRUD Cadastro de Empresas (Vue.js / Nest.js / MongoDB)
 - Docker:
   Caso preferir usar o MongoDB no docker: https://docs.docker.com/get-docker/
    - Comando para iniciar o mongo: docker run -d --name mongo-cadastro -p 27017:27017 mongo"
+
+- Teste branch no git
