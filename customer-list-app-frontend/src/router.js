@@ -1,18 +1,26 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HomeComponent from '@/views/Home';
-import EditComponent from '@/components/customer/Edit';
-import CreateComponent from '@/components/customer/Create';
+import ListCompanyComponent from '@/views/ListCompany';
+import EditCompanyComponent from '@/components/company/EditCompany';
+import CreateCompanyComponent from '@/components/company/CreateCompany';
+import ListEmployeeComponent from '@/views/ListEmployee';
+import EditEmployeeComponent from '@/components/employee/EditEmployee';
+import CreateEmployeeComponent from '@/components/employee/CreateEmployee';
+import ListCoEmComponent from '@/views/ListCoEm';
 
 Vue.use(Router)
 
 export default new Router({
   mode: 'history',
   routes: [
-    { path: '/', redirect: { name: 'home' } },
-    { path: '/home', name: 'home', component: HomeComponent },
-    { path: '/create', name: 'Create', component: CreateComponent },
-    { path: '/edit/:id', name: 'Edit', component: EditComponent },
+    { path: '/list', name: 'ListCompany', component: ListCompanyComponent },
+    { path: '/create', name: 'CreateCompany', component: CreateCompanyComponent },
+    { path: '/edit/:id', name: 'EditCompany', component: EditCompanyComponent },
+    { path: '/listEmployee', name: 'ListEmployee', component: ListEmployeeComponent },
+    { path: '/createEmployee', name: 'CreateEmployee', component: CreateEmployeeComponent },
+    { path: '/editEmployee/:id', name: 'EditEmployee', component: EditEmployeeComponent },
+    { path: '/listCoEm/:id', name: 'ListCoEm', component: ListCoEmComponent },
+    
   ]
 });
 
