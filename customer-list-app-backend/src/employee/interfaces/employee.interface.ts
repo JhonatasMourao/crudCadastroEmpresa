@@ -3,6 +3,7 @@ export interface Employee extends Document {
     readonly telefoneFuncionario: string;
     readonly dataDeNascimento: String;
     readonly salario: Number,
+    readonly idEmpresa: String,
 }
 
 //"Dá forma aos dados" - determina o TIPO dos valores criados em "employee.schema.ts"

@@ -5,6 +5,7 @@ export const EmployeeSchema = new mongoose.Schema({
     telefoneFuncionario: String,
     dataDeNascimento: Date,
     salario: Number, 
+    idEmpresa: String,
 })
 
 //Essa classe cria um esquema de BD Mongoose que determina os dados que serão armazenados no BD

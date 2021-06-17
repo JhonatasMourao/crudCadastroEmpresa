@@ -114,7 +114,7 @@ export default {
     getEmployee() {
       axios
         .get(`${server.baseURL}/employee/employee/${this.id}`)
-        .then((data) => (this.employee = data.data));
+        .then((data) => (this.employee = data.data));//aqui
     },
     navigate() {
       router.go(-1);

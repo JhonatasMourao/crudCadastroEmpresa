@@ -44,9 +44,9 @@
       <b-form-group id="select" label="Empresa:" label-for="selectBox">
         <b-form-select 
           id="selectBox"
-          v-model="selected" :options="options">
+          v-model="company" :options="companies">
           </b-form-select>
-          <div class="mt-3">Selected: <strong>{{ selected }}
+          <div class="mt-3">Empresa: <strong>{{ company }}
           </strong></div>
         </b-form-group>
 
@@ -69,14 +69,29 @@ export default {
       telefoneFuncionario: "",
       dataNascimento: "",
       salario: "",
-      selected: null,
-        options: [
-          { value: null, text: 'Insira uma opção' },
-          { value: '01', text: '1' },
-        ]
+      company: null,
+      companies: [],
     };
   },
+  async created() {
+    this.companies = await this.getCompanies();
+  },
   methods: {
+    async getCompanies() {
+    const options = [
+      { value: null, text: 'Insira uma opção' },
+    ];
+
+    const data = await axios.get(`${server.baseURL}/company/companys`);
+    const companys = data.data;
+      //.then(data => (this.company = data.data)); //quando carregar, p axios vai chamar a função then, passando o parametro data
+    for (const company of companys) { //percorre o array companys um por um atribuindo cada valor ao company
+      options.push(
+        { value: company._id, text: company.nomeEmpresa}
+      );
+    }
+    return options; // recupera companys e devolve elas
+  },
     createEmployee() {
       //recebe os detalhes de um funcionario por meio dos campos de entrada
       let employeeData = {
