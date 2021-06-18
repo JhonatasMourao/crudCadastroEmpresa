@@ -1,14 +1,11 @@
 <template>
-  <div>
+  <div class="formulario">
     <div class="col-md-12 form-wrapper">
-      <h2>EDITAR CADASTRO DE FUNCIONÁRIO</h2>
+      <h2 class="titulo">EDITAR CADASTRO DE FUNCIONÁRIO</h2>
 
       <form id="create-post-form" @submit.prevent="editEmployee">
-        <b-form-group
-          id="input-group-1"
-          label="Nome do Funcionário:"
-          label-for="input-1"
-          ><b-form-input
+        <b-form-group id="input-group-1" label="Nome do Funcionário:" class="label" label-for="input-1">
+          <b-form-input
             id="input-1"
             v-model="employee.nomeFuncionario"
             type="text"
@@ -17,7 +14,7 @@
           ></b-form-input>
         </b-form-group>
 
-        <b-form-group id="input-group-2" label="Telefone:" label-for="input-2">
+        <b-form-group id="input-group-2" label="Telefone:" class="label" label-for="input-2">
           <b-form-input
             id="input-2"
             v-model="employee.telefoneFuncionario"
@@ -27,7 +24,7 @@
           ></b-form-input>
         </b-form-group>
 
-        <b-form-group id="input-group-2" label="Data de Nascimento:" label-for="input-2">
+        <b-form-group id="input-group-2" label="Data de Nascimento:" class="label" label-for="input-2">
         <b-form-input
           id="input-2"
           v-model="employee.dataDeNascimento"
@@ -37,11 +34,8 @@
         ></b-form-input>
       </b-form-group>
 
-        <b-form-group
-          id="input-group-4"
-          label="Salário (R$):"
-          label-for="input-2"
-        ><b-form-input
+        <b-form-group id="input-group-4" label="Salário (R$):" class="label" label-for="input-2">
+          <b-form-input
             id="input-2"
             type="number"
             v-model="employee.salario"
@@ -50,8 +44,9 @@
           ></b-form-input>
         </b-form-group>
 
-        <b-form-group id="select" label="Empresa:" label-for="selectBox">
+        <b-form-group id="select" label="Empresa:" class="label" label-for="selectBox">
           <b-form-select id="selectBox" 
+          class="selection"
           v-model="employee.idEmpresa" 
           :options="companies">
           </b-form-select>
@@ -61,9 +56,7 @@
         </b-form-group>
 
         <div class="form-group col-md-4 pull-right">
-          <button class="btn btn-success" type="submit" id="btnSalvar">
-            SALVAR
-          </button>
+          <button class="btn btn-success" type="submit" id="btnSalvar">SALVAR</button>
         </div>
       </form>
     </div>
@@ -73,19 +66,31 @@
 </template>
 
 <style scoped>
-h2 {
-  margin-top: 60px;
-  margin-left: 15px;
-  color: blue;
+.titulo {
   text-align: center;
+  color: rgb(29, 131, 105);
+  margin-bottom: 25px;
+  font-weight: bold;
 }
-
-#create-post-form {
-  margin-top: 30px;
+.formulario {
+  margin: 35px 280px 30px 280px;
+  padding: 20px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgba(22, 20, 21, 0.5);
+  background: rgba(22, 20, 21, 0.048);
 }
-
+.label {
+  margin-bottom: 15px;
+}
+.selection {
+  width: 220px;
+  height: 35px;
+  margin-bottom: 15px;
+}
 #btnSalvar {
-  width: 150px;
+  width: 220px;
+  margin-right: 20px;
 }
 </style>
 

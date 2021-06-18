@@ -1,13 +1,10 @@
 <template>
-  <div class="fomulario">
-    <h2>CADASTRAR FUNCIONÁRIO</h2>
+  <div class="formulario">
+    <h2 class="titulo">CADASTRAR FUNCIONÁRIO</h2>
 
     <b-form @submit.prevent="createEmployee" @reset="onReset">
-      <b-form-group
-        id="input-group-1"
-        label="Nome do Funcionário:"
-        label-for="input-1"
-        ><b-form-input
+      <b-form-group id="input-group-1" label="Nome do Funcionário:" class="label" label-for="input-1">
+        <b-form-input
           id="input-1"
           v-model="nomeFuncionario"
           type="text"
@@ -16,7 +13,7 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group id="input-group-2" label="Telefone:" label-for="input-2">
+      <b-form-group id="input-group-2" label="Telefone:" class="label" label-for="input-2">
         <b-form-input
           id="input-2"
           v-model="telefoneFuncionario"
@@ -26,7 +23,7 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group id="input-group-2" label="Data de Nascimento:" label-for="input-2">
+      <b-form-group id="input-group-2" label="Data de Nascimento:" class="label" label-for="input-2">
         <b-form-input
           id="input-2"
           v-model="dataDeNascimento"
@@ -36,7 +33,7 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group id="input-group-4" label="Salário:" label-for="input-2">
+      <b-form-group id="input-group-4" label="Salário:" class="label" label-for="input-2">
         <b-form-input
           id="input-2"
           type="number"
@@ -46,20 +43,49 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group id="select" label="Empresa:" label-for="selectBox">
+      <b-form-group id="select" label="Empresa:" class="label" label-for="selectBox">
         <b-form-select 
           id="selectBox"
+          class="selection"
           v-model="company" 
           :options="companies">
           </b-form-select>
         </b-form-group>
 
-      <b-button type="submit" variant="primary">Cadastrar</b-button>
-      <b-button type="reset" variant="danger">Apagar</b-button>
+      <b-button type="submit" variant="primary" class="btn">Cadastrar</b-button>
+      <b-button type="reset" variant="danger" class="btn">Apagar</b-button>
     </b-form>
   </div>
 </template>
 
+<style scoped>
+.titulo {
+  color: rgba(158, 28, 93);
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+.formulario {
+  margin: 35px 280px 30px 280px;
+  padding: 20px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgba(99, 18, 58, 0.527);
+  background: rgba(99, 18, 58, 0.048);
+}
+.label {
+  margin-bottom: 15px;
+}
+.selection {
+  width: 220px;
+  height: 35px;
+  margin-bottom: 15px;
+}
+.btn {
+  width: 100px;
+  margin-right: 20px;
+}
+</style>
 
 <script>
 import axios from "axios"; //uso o axios para postar os dados no servidor

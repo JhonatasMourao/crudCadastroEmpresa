@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <div class="text-center">
-      <h1>LISTAGEM DE FUNCIONÁRIOS DA EMPRESA</h1>
+      <h2>LISTAGEM DE FUNCIONÁRIOS DA EMPRESA</h2>
 
       <p>Teste BugHunt (CRUD contstruído com Vue.Js / Nest.Js / MongoDB)</p>
       <div v-if="employees.length === 0">
@@ -35,14 +35,18 @@
 </template>
 
 <style scoped>
-h1 {
-  color: blue;
-}
 h2 {
-  color: rgb(179, 56, 11);
+  text-align: center;
+  color: rgb(29, 131, 105);
+  margin-top: 35px;
+  margin-bottom: 25px;
+  font-weight: bold;
 }
 p {
   color: darkgreen;
+}
+.thead-dark{
+  background: rgba(29, 131, 106, 0.055);
 }
 </style>
 

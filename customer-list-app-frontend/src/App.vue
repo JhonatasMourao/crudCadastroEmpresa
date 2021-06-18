@@ -13,13 +13,20 @@
 </template>
 
 <style>
+#nav {
+  background: rgba(45, 156, 88, 0.151);
+  text-align: center;
+  padding: 5px;
+}
 .routerLink{
-  display: inline-block;
+  color: rgba(33, 107, 61, 0.952);
+  font-size: 18px;
+  Display: inline-block;
   margin-top: 20px;
 }
 .form-wrapper {
   width: 500px;
-  margin: 0 auto;
+  margin: auto;
 }
 </style>
 

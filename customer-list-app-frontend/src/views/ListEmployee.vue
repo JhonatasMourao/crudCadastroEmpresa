@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <div class="text-center">
-      <h1>LISTAGEM DE FUNCIONÁRIOS CADASTRADOS</h1>
+      <h2>LISTAGEM DE FUNCIONÁRIOS CADASTRADOS</h2>
 
       <p>Teste BugHunt (CRUD contstruído com Vue.Js / Nest.Js / MongoDB)</p>
       <div v-if="employees.length === 0">
@@ -28,14 +28,16 @@
             <td>{{ employee.salario }}</td>
             <td>
               <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group" style="margin-bottom: 20px">
+                <div class="btn-group">
                   <router-link
                     :to="{ name: 'EditEmployee', params: { id: employee._id } }"
                     class="btn btn-sm btn-outline-secondary"
+                    id="btnEditar"
                     >EDITAR
                   </router-link>
                   <!-- </router-link> O Router link cria um link para edição e visualização de um cliente/empresa passando o id com parâm. de consulta-->
                   <button
+                    id="btnEditar"
                     class="btn btn-sm btn-outline-secondary"
                     v-on:click="deleteEmployee(employee._id)"
                   >
@@ -54,15 +56,23 @@
 </template>
 
 <style scoped>
-h1 {
-  color: blue;
-}
 h2 {
-  color: rgb(179, 56, 11);
+  text-align: center;
+  color: rgb(29, 131, 105);
+  margin-top: 35px;
+  margin-bottom: 25px;
+  font-weight: bold;
 }
 p {
   color: darkgreen;
 }
+.thead-dark{
+  background: rgba(29, 131, 106, 0.055);
+}
+#btnEditar, #btnExcluir {
+  margin-right: 5px;
+  width: 115px;
+ }
 </style>
 
 <script>
