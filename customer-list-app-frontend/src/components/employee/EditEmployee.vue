@@ -49,6 +49,15 @@
             required
           ></b-form-input>
         </b-form-group>
+
+        <b-form-group id="select" label="Empresa:" label-for="selectBox">
+          <b-form-select id="selectBox" v-model="company" :options="companies">
+          </b-form-select>
+          <div class="mt-3">
+            <strong>{{ company }} </strong>
+          </div>
+        </b-form-group>
+
         <div class="form-group col-md-4 pull-right">
           <button class="btn btn-success" type="submit" id="btnSalvar">
             SALVAR
@@ -82,40 +91,48 @@ h2 {
 import { server } from "../../helper";
 import axios from "axios";
 import router from "../../router";
+
 export default {
   data() {
     return {
       id: 0,
       employee: {},
+      company: null,
+      companies: [],
     };
   },
   created() {
     this.id = this.$route.params.id;
     this.getEmployee();
   },
-  methods: {
+
+
+  methods: { 
     editEmployee() {
       //esse metodo envia uma solicitação PUT HTTP ao servidor
-      let employeeData = {
-        nomeFuncionario: this.employee.nomeFuncionario,
-        telefoneFuncionario: this.employee.telefoneFuncionario,
-        dataNascimento: this.employee.dataNascimento,
-        salario: this.employee.salario,
-      };
-      axios
-        .put(
-          `${server.baseURL}/employee/update?employeeID=${this.id}`,
-          employeeData
-        )
-        .then((data) => {
-          router.push({ name: "ListEmployee" });
-        });
-    },
+    let employeeData = {
+      nomeFuncionario: this.employee.nomeFuncionario,
+      telefoneFuncionario: this.employee.telefoneFuncionario,
+      dataNascimento: this.employee.dataNascimento,
+      salario: this.employee.salario,
+      idEmpresa: this.nomeEmpresa,
+    };
+    axios
+      .put(
+        `${server.baseURL}/employee/update?employeeID=${this.id}`,
+        employeeData
+      )
+      .then((data) => {
+        router.push({ name: "ListEmployee" });
+      });
+  },
+    
     getEmployee() {
       axios
         .get(`${server.baseURL}/employee/employee/${this.id}`)
-        .then((data) => (this.employee = data.data));//aqui
+        .then((data) => (this.employee = data.data)); //aqui
     },
+    
     navigate() {
       router.go(-1);
     },

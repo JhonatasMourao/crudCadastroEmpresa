@@ -38,7 +38,7 @@
                   >EXCLUIR
                   </button>
                   <router-link
-                    :to="{ name: 'ListCoEm', params: { id: company._id } }"
+                    :to="{ name: 'ListEmployeeByCompany', params: { id: company._id } }"
                     class="btn btn-sm btn-outline-secondary"
                     >Funcionários
                   </router-link>

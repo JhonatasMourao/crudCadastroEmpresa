@@ -6,7 +6,7 @@ import CreateCompanyComponent from '@/components/company/CreateCompany';
 import ListEmployeeComponent from '@/views/ListEmployee';
 import EditEmployeeComponent from '@/components/employee/EditEmployee';
 import CreateEmployeeComponent from '@/components/employee/CreateEmployee';
-import ListCoEmComponent from '@/views/ListCoEm';
+import ListEmployeeByCompanyComponent from '@/views/ListEmployeeByCompany';
 
 Vue.use(Router)
 
@@ -19,7 +19,7 @@ export default new Router({
     { path: '/listEmployee', name: 'ListEmployee', component: ListEmployeeComponent },
     { path: '/createEmployee', name: 'CreateEmployee', component: CreateEmployeeComponent },
     { path: '/editEmployee/:id', name: 'EditEmployee', component: EditEmployeeComponent },
-    { path: '/listCoEm/:id', name: 'ListCoEm', component: ListCoEmComponent },
+    { path: '/listEmployeeByCompany/:id', name: 'ListEmployeeByCompany', component: ListEmployeeByCompanyComponent },
     
   ]
 });
