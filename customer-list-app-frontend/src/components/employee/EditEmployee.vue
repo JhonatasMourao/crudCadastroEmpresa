@@ -27,21 +27,21 @@
           ></b-form-input>
         </b-form-group>
 
-        <label for="datepicker">Data de Nascimento</label>
-        <b-form-datepicker
-          id="datepicker"
-          v-model="employee.dataNascimento"
-          class="mb-2"
-        >
-        </b-form-datepicker>
-        <p>Value: '{{ employee.dataNascimento }}'</p>
+        <b-form-group id="input-group-2" label="Data de Nascimento:" label-for="input-2">
+        <b-form-input
+          id="input-2"
+          v-model="employee.dataDeNascimento"
+          type="text"
+          placeholder="Digite a data de nascimento"
+          required
+        ></b-form-input>
+      </b-form-group>
 
         <b-form-group
           id="input-group-4"
           label="Salário (R$):"
           label-for="input-2"
-        >
-          <b-form-input
+        ><b-form-input
             id="input-2"
             type="number"
             v-model="employee.salario"
@@ -51,7 +51,9 @@
         </b-form-group>
 
         <b-form-group id="select" label="Empresa:" label-for="selectBox">
-          <b-form-select id="selectBox" v-model="employee.idEmpresa" :options="companies">
+          <b-form-select id="selectBox" 
+          v-model="employee.idEmpresa" 
+          :options="companies">
           </b-form-select>
           <div class="mt-3">
             <strong>{{ company }} </strong>
@@ -129,7 +131,7 @@ export default {
     let employeeData = {
       nomeFuncionario: this.employee.nomeFuncionario,
       telefoneFuncionario: this.employee.telefoneFuncionario,
-      dataNascimento: this.employee.dataNascimento,
+      dataDeNascimento: this.employee.dataDeNascimento,
       salario: this.employee.salario,
       idEmpresa: this.employee.idEmpresa,
     };

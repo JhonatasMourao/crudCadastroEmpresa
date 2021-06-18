@@ -21,15 +21,20 @@
           id="input-2"
           v-model="telefoneFuncionario"
           type="text"
-          placeholder="Digte o telefone do funcionário"
+          placeholder="Digite o telefone do funcionário"
           required
         ></b-form-input>
       </b-form-group>
 
-      <label for="datepicker">Data de Nascimento</label>
-      <b-form-datepicker id="datepicker" v-model="dataNascimento" class="mb-2">
-      </b-form-datepicker>
-      <p>Value: '{{ dataNascimento }}'</p>
+      <b-form-group id="input-group-2" label="Data de Nascimento:" label-for="input-2">
+        <b-form-input
+          id="input-2"
+          v-model="dataDeNascimento"
+          type="text"
+          placeholder="Digite a data de nascimento"
+          required
+        ></b-form-input>
+      </b-form-group>
 
       <b-form-group id="input-group-4" label="Salário:" label-for="input-2">
         <b-form-input
@@ -47,8 +52,6 @@
           v-model="company" 
           :options="companies">
           </b-form-select>
-          <div class="mt-3"><strong>{{ company }}
-          </strong></div>
         </b-form-group>
 
       <b-button type="submit" variant="primary">Cadastrar</b-button>
@@ -68,7 +71,7 @@ export default {
     return {
       nomeFuncionario: "",
       telefoneFuncionario: "",
-      dataNascimento: "",
+      dataDeNascimento: "",
       salario: "",
       company: null,
       companies: [],
@@ -98,7 +101,7 @@ export default {
       let employeeData = {
         nomeFuncionario: this.nomeFuncionario,
         telefoneFuncionario: this.telefoneFuncionario,
-        dataNascimento: this.dataNascimento,
+        dataDeNascimento: this.dataDeNascimento,
         salario: this.salario,
         idEmpresa: this.company,
       };
@@ -114,9 +117,8 @@ export default {
       // Reset our form values
       this.this.nomeFuncionario = "";
       this.this.telefoneFuncionario = "";
-      this.this.dataNascimento = "";
+      this.this.dataDeNascimento = "";
       this.this.salario = "";
-
     },
   },
 };

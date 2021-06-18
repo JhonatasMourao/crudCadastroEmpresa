@@ -3,7 +3,7 @@ import * as mongoose from 'mongoose'; //importa tudo do monggose e tudo terá o 
 export const EmployeeSchema = new mongoose.Schema({
     nomeFuncionario: String,
     telefoneFuncionario: String,
-    dataDeNascimento: Date,
+    dataDeNascimento: String,
     salario: Number, 
     idEmpresa: String,
 })

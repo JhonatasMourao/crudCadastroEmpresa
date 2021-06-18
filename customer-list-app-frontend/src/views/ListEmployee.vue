@@ -24,7 +24,7 @@
           <tr v-for="employee in employees" :key="employee._id">
             <td>{{ employee.nomeFuncionario }}</td>
             <td>{{ employee.telefoneFuncionario }}</td>
-            <td>{{ employee.dataNascimento }}</td>
+            <td>{{ employee.dataDeNascimento }}</td>
             <td>{{ employee.salario }}</td>
             <td>
               <div class="d-flex justify-content-between align-items-center">
