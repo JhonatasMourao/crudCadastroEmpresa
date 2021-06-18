@@ -45,6 +45,13 @@ export class EmployeeController {
         return res.status(HttpStatus.OK).json(employees);
     }
 
+    // Retrieve employee list
+    @Get('employees/:companyID')
+    async getAllEmployeeByCompany(@Res() res, @Param('companyID') companyID) {
+        const employees = await this.employeeService.getAllEmployeeByCompany(companyID);
+        return res.status(HttpStatus.OK).json(employees);
+    }
+
     // Fetch a particular employee using ID
     @Get('employee/:employeeID')
     async getEmployee(@Res() res, @Param('employeeID') employeeID) {

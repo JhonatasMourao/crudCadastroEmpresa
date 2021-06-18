@@ -44,7 +44,8 @@
       <b-form-group id="select" label="Empresa:" label-for="selectBox">
         <b-form-select 
           id="selectBox"
-          v-model="company" :options="companies">
+          v-model="company" 
+          :options="companies">
           </b-form-select>
           <div class="mt-3"><strong>{{ company }}
           </strong></div>

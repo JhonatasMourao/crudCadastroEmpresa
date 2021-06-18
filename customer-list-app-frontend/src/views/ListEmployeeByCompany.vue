@@ -52,23 +52,16 @@ export default {
     };
   },
   created() {
+    this.companyId = this.$route.params.id;
     this.fetchEmployees();
   },
   methods: {
     fetchEmployees() {
       //o metodo fetch busca todos funcionarios do DB e atualiza a pag. com os dados retornados do servidor
       axios
-        .get(`${server.baseURL}/employee/employees`)
+        .get(`${server.baseURL}/employee/employees/${this.companyId}`)
         .then((data) => (this.employees = data.data));
-    },
-    deleteEmployee(id) {
-      axios
-        .delete(`${server.baseURL}/employee/delete?employeeID=${id}`)
-        .then((data) => {
-          console.log(data);
-          window.location.reload();
-        });
-    },
+    }
   },
 };
 </script>

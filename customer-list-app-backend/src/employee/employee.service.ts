@@ -14,6 +14,11 @@ export class EmployeeService {
         const employees = await this.employeeModel.find().exec();
         return employees;
     }
+    // fetch all employees by company
+    async getAllEmployeeByCompany(companyID): Promise<Employee[]> {
+        const employees = await this.employeeModel.find({ idEmpresa: companyID }).exec();
+        return employees;
+    }
     // Get a single employee
     async getEmployee(employeeID): Promise<Employee> {
         const employee = await this.employeeModel.findById(employeeID).exec();

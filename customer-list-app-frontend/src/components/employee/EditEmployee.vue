@@ -51,7 +51,7 @@
         </b-form-group>
 
         <b-form-group id="select" label="Empresa:" label-for="selectBox">
-          <b-form-select id="selectBox" v-model="company" :options="companies">
+          <b-form-select id="selectBox" v-model="employee.idEmpresa" :options="companies">
           </b-form-select>
           <div class="mt-3">
             <strong>{{ company }} </strong>
@@ -101,13 +101,29 @@ export default {
       companies: [],
     };
   },
-  created() {
+  async created() {
     this.id = this.$route.params.id;
+    this.companies = await this.getCompanies();
     this.getEmployee();
   },
 
 
-  methods: { 
+  methods: {
+    async getCompanies() {
+      const options = [
+        { value: null, text: 'Insira uma opção' },
+      ];
+
+      const data = await axios.get(`${server.baseURL}/company/companys`);
+      const companys = data.data;
+        //.then(data => (this.company = data.data)); //quando carregar, p axios vai chamar a função then, passando o parametro data
+        for (const company of companys) { //percorre o array companys um por um atribuindo cada valor ao company
+        options.push(
+          { value: company._id, text: company.nomeEmpresa}
+        );
+      }
+      return options; // recupera companys e devolve elas
+    }, 
     editEmployee() {
       //esse metodo envia uma solicitação PUT HTTP ao servidor
     let employeeData = {
@@ -115,7 +131,7 @@ export default {
       telefoneFuncionario: this.employee.telefoneFuncionario,
       dataNascimento: this.employee.dataNascimento,
       salario: this.employee.salario,
-      idEmpresa: this.nomeEmpresa,
+      idEmpresa: this.employee.idEmpresa,
     };
     axios
       .put(
