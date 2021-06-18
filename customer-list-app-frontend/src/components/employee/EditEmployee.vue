@@ -32,7 +32,7 @@
           id="input-2"
           v-model="employee.dataDeNascimento"
           type="text"
-          placeholder="Digite a data de nascimento"
+          placeholder="00/00/0000"
           required
         ></b-form-input>
       </b-form-group>

@@ -13,14 +13,18 @@
       <table class="table table-bordered">
         <thead class="thead-dark">
           <tr>
-            <th scope="col">Nome da Empresa</th>
-            <th scope="col">Funcionários</th>
+            <th scope="col">Funcionário</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">Data de Nascimento</th>
+            <th scope="col">Salário</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="employee in employees" :key="employee._id">
             <td>{{ employee.nomeFuncionario }}</td>
             <td>{{ employee.telefoneFuncionario }}</td>
+            <td>{{ employee.dataDeNascimento }}</td>
+            <td>{{ employee.salario }}</td>
           </tr>
         </tbody>
       </table>

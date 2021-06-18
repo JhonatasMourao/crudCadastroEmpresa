@@ -21,20 +21,20 @@
           id="input-2"
           v-model="telefone"
           type="text"
-          placeholder="Digte o telefone"
+          placeholder="Digite o telefone"
           required
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group id="input-group-3" label="Status:" label-for="input-2">
-        <b-form-input
-          id="input-2"
-          type="text"
+      <b-form-group id="input-group-3" label="Food:" label-for="input-3">
+        <b-form-select
+          id="input-3"
           v-model="status"
-          placeholder="Ativo / Inativo"
+          :options="situacoes"
           required
-        ></b-form-input>
+        ></b-form-select>
       </b-form-group>
+
       <b-button type="submit" variant="primary">Cadastrar</b-button>
       <b-button type="reset" variant="danger">Apagar</b-button>
     </b-form>
@@ -50,7 +50,10 @@ export default {
     return {
       nomeEmpresa: "",
       telefone: "",
-      status: "",
+      status: null,
+          checked: [],
+          situacoes: [{ text: 'Selecione uma opção', value: null }, 'ATIVO', 'INATIVO'],
+          show: true
     };
   },
   methods: {
@@ -71,9 +74,9 @@ export default {
     onReset(event) {
       event.preventDefault();
       // Reset our form values
-      this.this.nomeEmpresa = "";
-      this.this.telefone = "";
-      this.this.status = "";
+      this.nomeEmpresa = "";
+      this.telefone = "";
+      this.status = null;
     },
   },
 };

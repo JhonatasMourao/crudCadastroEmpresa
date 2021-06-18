@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import HomeComponent from '@/components/Home';
 import ListCompanyComponent from '@/views/ListCompany';
 import EditCompanyComponent from '@/components/company/EditCompany';
 import CreateCompanyComponent from '@/components/company/CreateCompany';
@@ -13,6 +14,7 @@ Vue.use(Router)
 export default new Router({
   mode: 'history',
   routes: [
+    { path: '/',  name: 'Home', component: HomeComponent },
     { path: '/list', name: 'ListCompany', component: ListCompanyComponent },
     { path: '/create', name: 'CreateCompany', component: CreateCompanyComponent },
     { path: '/edit/:id', name: 'EditCompany', component: EditCompanyComponent },

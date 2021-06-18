@@ -31,15 +31,15 @@
             ></b-form-input>
           </b-form-group>
           
-          <b-form-group id="input-group-3" label="Status:" label-for="input-2">
-            <b-form-input
-              id="input-2"
-              type="text"
-              v-model="company.status"
-              placeholder="Ativo / Inativo"
-              required
-            ></b-form-input>
+          <b-form-group id="input-group-3" label="Food:" label-for="input-3">
+          <b-form-select
+            id="input-3"
+            v-model="company.status"
+            :options="situacoes"
+            required
+          ></b-form-select>
           </b-form-group>
+          
         </div>
         <div class="form-group col-md-4 pull-right">
           <button class="btn btn-success" type="submit" id="btnSalvar">
@@ -79,6 +79,10 @@ export default {
     return {
       id: 0,
       company: {},
+      status: null,
+          checked: [],
+          situacoes: [{ text: 'Selecione uma opção', value: null }, 'ATIVO', 'INATIVO'],
+          show: true
     };
   },
   created() {

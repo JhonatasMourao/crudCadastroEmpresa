@@ -31,7 +31,7 @@
           id="input-2"
           v-model="dataDeNascimento"
           type="text"
-          placeholder="Digite a data de nascimento"
+          placeholder="00/00/0000"
           required
         ></b-form-input>
       </b-form-group>
@@ -88,7 +88,6 @@ export default {
 
     const data = await axios.get(`${server.baseURL}/company/companys`);
     const companys = data.data;
-      //.then(data => (this.company = data.data)); //quando carregar, p axios vai chamar a função then, passando o parametro data
       for (const company of companys) { //percorre o array companys um por um atribuindo cada valor ao company
       options.push(
         { value: company._id, text: company.nomeEmpresa}
@@ -115,10 +114,10 @@ export default {
     onReset(event) {
       event.preventDefault();
       // Reset our form values
-      this.this.nomeFuncionario = "";
-      this.this.telefoneFuncionario = "";
-      this.this.dataDeNascimento = "";
-      this.this.salario = "";
+      this.nomeFuncionario = "";
+      this.telefoneFuncionario = "";
+      this.dataDeNascimento = "";
+      this.salario = "";
     },
   },
 };
